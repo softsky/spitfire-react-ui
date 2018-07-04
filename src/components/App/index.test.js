@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import jest from 'jest';
-import App from './App';
+import App from './index';
 
 
+// eslint-disable-next-line
 it('renders without crashing', () => {
+  // eslint-disable-next-line
   const div = document.createElement('div');
 
   const props = {
@@ -13,9 +14,10 @@ it('renders without crashing', () => {
       on: () => null,
       send: () => null,
       removeListener: () => null,
-    }
-  }
-  
-  ReactDOM.render(<App { ...props }/>, div);
+    },
+  };
+
+  // eslint-disable-next-line
+  ReactDOM.render(<App {...props} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
