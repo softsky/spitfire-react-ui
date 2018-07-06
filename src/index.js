@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import './index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
-// eslint-disable-next-line
-const electron = window.require('electron');
-const { ipcRenderer: ipc } = electron;
 
-// eslint-disable-next-line
-ReactDOM.render(<App ipc={ipc} />, document.getElementById('root'));
+ReactDOM.render(
+  // eslint-disable-next-line
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  // eslint-disable-next-line
+  document.getElementById('root'),
+);
+
 registerServiceWorker();

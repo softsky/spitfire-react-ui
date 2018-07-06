@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from '../../store';
 import App from './index';
 
 
@@ -8,16 +10,14 @@ it('renders without crashing', () => {
   // eslint-disable-next-line
   const div = document.createElement('div');
 
-  const props = {
-    ipc: {
-      // we can test it as well
-      on: () => null,
-      send: () => null,
-      removeListener: () => null,
-    },
-  };
+  ReactDOM.render(
+    // eslint-disable-next-line
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    div,
+  );
 
-  // eslint-disable-next-line
-  ReactDOM.render(<App {...props} />, div);
+
   ReactDOM.unmountComponentAtNode(div);
 });
