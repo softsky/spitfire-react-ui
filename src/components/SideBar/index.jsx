@@ -13,14 +13,14 @@ const SideBar = ({ items }) => (
         STATUS:
         {' '}
         <span>
-Authenticated
+         Authenticated
         </span>
       </p>
       <p className="Sider-footer-updates">
         Check for updates
         {' '}
         <span className="SideBar-footer-faq">
-FAQ
+          FAQ
         </span>
       </p>
     </div>
