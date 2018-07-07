@@ -11,6 +11,7 @@ import Profiles from '../Pages/Profiles';
 import Laboratory from '../Pages/Laboratory';
 import Access from '../Pages/Access';
 import colors from '../../constants/colors';
+import initializeFontAwesome from '../../utils/initializeFontAwesome';
 import './styles.css';
 
 
@@ -53,6 +54,10 @@ class App extends Component {
     },
   ]
 
+  componentDidMount() {
+    initializeFontAwesome();
+  }
+
   render() {
     return (
       <ThemeProvider theme={colors}>
@@ -60,7 +65,7 @@ class App extends Component {
           <Header />
           <Router>
             <div className="App-container">
-              <Redirect to={this.items[0].path} />
+              <Redirect to={this.items[1].path} />
               <SideBar items={this.items} />
               {
                 this.items.map(item => (
