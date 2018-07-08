@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 
+const Container = styled('div')`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
 
 const Heading = styled('div')`
   color: #ffffff;
@@ -10,18 +15,17 @@ const Heading = styled('div')`
   width: 100%;
   font-family: 'MontserratSemiBold';
   font-size: 13px;
+  flex-shrink: 0;
 `;
 
 const Body = styled('div')`
-  background: linear-gradient( 
-    white 50%, 
-    transparent 50%);
-  background-size: 2em 2em;
-  background-color: black;
+  background: linear-gradient(#20232f 50%, transparent 50%);
+  background-size: 64px 64px;
+  flex: 1;
 `;
 
 const Row = styled('div')`
-display: flex;
+  display: flex;
   color: ${props => props.theme.primaryTextColor};
   width: 100%;
   font-family: 'MontserratMedium';
@@ -31,7 +35,7 @@ display: flex;
 const Column = styled('div')`
   min-height: 32px;
   padding: 0 5px;
-  box-sixing: border-box;
+  box-sizing: border-box;
   width: ${props => props.width};
   flex: ${props => (props.width ? 'initial' : 1)};
   display: flex;
@@ -40,7 +44,7 @@ const Column = styled('div')`
 `;
 
 const Table = ({ data, columns }) => (
-  <React.Fragment>
+  <Container>
     <Heading>
       {
         columns.map(col => (
@@ -53,19 +57,19 @@ const Table = ({ data, columns }) => (
     <Body>
       {
         data.map(item => (
-          <Row>
+          <Row key={item.id}>
             {
-            columns.map(col => (
-              <Column key={col.key} width={col.width}>
-                {item[col.key]}
-              </Column>
-            ))
+              columns.map(col => (
+                <Column key={col.key} width={col.width}>
+                  { col.render ? col.render(item) : item[col.key] }
+                </Column>
+              ))
             }
           </Row>
         ))
       }
     </Body>
-  </React.Fragment>
+  </Container>
 );
 
 Table.propTypes = {
@@ -73,7 +77,7 @@ Table.propTypes = {
 
   })).isRequired,
   columns: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.string.isRequired,
+    key: PropTypes.string,
     width: PropTypes.string,
     title: PropTypes.string,
   })).isRequired,

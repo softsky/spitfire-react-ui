@@ -35,7 +35,7 @@ const Header = () => (
     <p className={titleCss}>
       <Icon /> Upcomming Release
     </p>
-    <Button onClick={() => null}>
+    <Button primary onClick={() => null}>
       Refresh
     </Button>
   </div>

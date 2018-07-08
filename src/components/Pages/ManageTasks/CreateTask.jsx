@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-
+import Title from './Title';
 import CheckBox from '../../UI/CheckBox';
 import Button from '../../UI/Button';
 import Input from '../../UI/Input';
@@ -15,14 +15,17 @@ const containerCss = css`
   font-family: 'MontserratMedium';
 `;
 
-const createBtnCss = css`
+const StyledButton = styled(Button)`
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 40px auto 0;
   width: 185px;
-  height: 47px;
+  height: 45px;
   font-size: 14.5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+
+  > * { margin-right: 15px!important }
 `;
 
 const resetFlexCss = css`
@@ -33,11 +36,8 @@ const proxyCheckboxCss = css`
   padding: 8px 0 8px 12px;
 `;
 
-const Title = styled('p')`
-  color: #ffffff;
+const StyledTitle = styled(Title)`
   text-align: center;
-  font-size: 23px;
-  margin: 0 0 30px 0;
 `;
 
 const Row = styled('div')`
@@ -93,7 +93,9 @@ export default class CreateTask extends Component {
 
     return (
       <div className={containerCss}>
-        <Title>Create New Task</Title>
+        <StyledTitle icon="list">
+          Create New Task
+        </StyledTitle>
         <Row>
           <Input
             placeholder="URL/SKU"
@@ -191,9 +193,13 @@ export default class CreateTask extends Component {
             onChange={value => this.handleFieldChange(value, 'account')}
           />
         </Row>
-        <Button className={createBtnCss} onClick={this.handleTaskCreate} primary>
+        <StyledButton
+          onClick={this.handleTaskCreate}
+          primary
+          icon="plus"
+        >
           create
-        </Button>
+        </StyledButton>
       </div>
     );
   }

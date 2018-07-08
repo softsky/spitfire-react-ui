@@ -34,16 +34,16 @@ const GlobalActions = () => (
   <div>
     <Title>Global Actions</Title>
     <ActionList>
-      <Button primary icon="play-circle">
+      <Button primary icon="play-circle-o">
         start all
       </Button>
-      <Button light secondary icon="stop-circle">
+      <Button light secondary icon="stop-circle-o">
         stop all
       </Button>
-      <Button light secondary>
+      <Button light secondary icon="times-circle-o">
         delete all
       </Button>
-      <Button light secondary>
+      <Button light secondary icon="repeat">
         restart all
       </Button>
       <Button secondary className={importCss}>

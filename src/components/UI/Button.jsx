@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import noop from 'lodash/noop';
 import FontAwesome from 'react-fontawesome';
-import styled, { css } from 'react-emotion';
+import styled from 'react-emotion';
 
 
 function getBg(props) {
@@ -48,14 +49,13 @@ const StyledButton = styled('a')`
   text-transform: uppercase;
 
   &:hover {
-    opacity: .8;
+    opacity: .7;
+    transform: translateZ(0);
   }
 `;
 
-const iconCss = css`
+const Icon = styled(FontAwesome)`
   margin-right: 5px;
-  position: relative;
-  top: 1px;
 `;
 
 const Button = (props) => {
@@ -69,7 +69,7 @@ const Button = (props) => {
 
   return (
     <StyledButton onClick={onClick} className={className} {...rest}>
-      { icon && <FontAwesome name={icon} className={iconCss} />}
+      { icon && <Icon name={icon} />}
       { children }
     </StyledButton>
   );
@@ -77,7 +77,7 @@ const Button = (props) => {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   className: PropTypes.string,
   icon: PropTypes.string,
 };
@@ -85,6 +85,7 @@ Button.propTypes = {
 Button.defaultProps = {
   className: null,
   icon: null,
+  onClick: noop,
 };
 
 export default Button;
