@@ -7,4 +7,5 @@ export default {
   buttonPrimaryColor: '#ffffff',
   buttonSecondaryBg: '#474b61',
   buttonSecondaryColor: primaryTextColor,
+  sideBarTextColor: '#5a607b',
 };

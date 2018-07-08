@@ -1,9 +1,10 @@
 import React from 'react';
-import styled, { css } from 'react-emotion';
+import styled from 'react-emotion';
+import Title from './Title';
 import Button from '../../UI/Button';
 
 
-const containerCss = css`
+const Container = styled('div')`
   display: flex;
   padding: 0 5px;
   align-items: center;
@@ -11,34 +12,15 @@ const containerCss = css`
   user-select: none;
 `;
 
-const titleCss = css`
-  font-family: 'MontserratMedium';
-  font-size: 23px;
-  color: #ffffff;
-  margin: 0;
-  flex: 1;
-`;
-
-const Icon = styled('i')`
-  background: #ee504c;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  position: relative;
-  top: 2px;
-  margin: 0px 10px 0 30px;
-`;
-
 const Header = () => (
-  <div className={containerCss}>
-    <p className={titleCss}>
-      <Icon /> Upcomming Release
-    </p>
-    <Button primary onClick={() => null}>
+  <Container>
+    <Title icon="rocket">
+      Upcomming Release
+    </Title>
+    <Button primary icon="refresh" onClick={() => null}>
       Refresh
     </Button>
-  </div>
+  </Container>
 );
 
 export default Header;

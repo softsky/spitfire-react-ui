@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 import { flow } from 'lodash/fp';
+import copy from 'copy-to-clipboard';
 import withNewReleases from '../../../containers/withNewReleases';
 import ReleaseItem from './ReleaseItem';
 import Header from './Header';
@@ -41,8 +42,9 @@ class NewReleases extends Component {
     newReleases.actions.fetchNewReleases();
   }
 
-  handleShoesClick = (activeShoes) => {
+  handleShoesClick = (activeShoes, sku) => {
     this.setState({ activeShoes });
+    copy(sku);
   }
 
   render() {
