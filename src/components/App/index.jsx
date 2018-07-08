@@ -11,7 +11,6 @@ import Profiles from '../Pages/Profiles';
 import Laboratory from '../Pages/Laboratory';
 import Access from '../Pages/Access';
 import colors from '../../constants/colors';
-import initializeFontAwesome from '../../utils/initializeFontAwesome';
 import './styles.css';
 
 
@@ -53,10 +52,6 @@ class App extends Component {
       component: Access,
     },
   ]
-
-  componentDidMount() {
-    initializeFontAwesome();
-  }
 
   render() {
     return (

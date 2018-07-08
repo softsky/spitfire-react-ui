@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FontAwesome from 'react-fontawesome';
 import styled, { css } from 'react-emotion';
 
 
@@ -69,7 +69,7 @@ const Button = (props) => {
 
   return (
     <StyledButton onClick={onClick} className={className} {...rest}>
-      { icon && <FontAwesomeIcon icon={icon} className={iconCss} />}
+      { icon && <FontAwesome name={icon} className={iconCss} />}
       { children }
     </StyledButton>
   );

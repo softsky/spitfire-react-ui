@@ -12,8 +12,16 @@ const Heading = styled('div')`
   font-size: 13px;
 `;
 
+const Body = styled('div')`
+  background: linear-gradient( 
+    white 50%, 
+    transparent 50%);
+  background-size: 2em 2em;
+  background-color: black;
+`;
+
 const Row = styled('div')`
-  display: flex;
+display: flex;
   color: ${props => props.theme.primaryTextColor};
   width: 100%;
   font-family: 'MontserratMedium';
@@ -42,19 +50,21 @@ const Table = ({ data, columns }) => (
         ))
       }
     </Heading>
-    {
-      data.map(item => (
-        <Row>
-          {
+    <Body>
+      {
+        data.map(item => (
+          <Row>
+            {
             columns.map(col => (
               <Column key={col.key} width={col.width}>
                 {item[col.key]}
               </Column>
             ))
-          }
-        </Row>
-      ))
-    }
+            }
+          </Row>
+        ))
+      }
+    </Body>
   </React.Fragment>
 );
 
