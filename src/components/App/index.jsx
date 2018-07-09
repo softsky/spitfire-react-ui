@@ -20,36 +20,43 @@ class App extends Component {
       path: '/releases',
       title: 'New Releases',
       component: NewReleases,
+      icon: 'rocket',
     },
     {
       path: '/tasks',
       title: 'Manage Tasks',
       component: ManageTasks,
+      icon: 'list',
     },
     {
       path: '/results',
       title: 'Lotto Results',
       component: LottoResults,
+      icon: 'trophy',
     },
     {
       path: '/checker',
       title: 'Order Checker',
       component: OrderChecker,
+      icon: 'archive',
     },
     {
       path: '/profiles',
       title: 'Profiles',
       component: Profiles,
+      icon: 'user-o',
     },
     {
       path: '/laboratory',
       title: 'Laboratory',
       component: Laboratory,
+      icon: 'flask',
     },
     {
       path: '/access',
       title: 'Access',
       component: Access,
+      icon: 'check',
     },
   ]
 

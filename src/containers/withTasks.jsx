@@ -1,11 +1,11 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from '../actions/newReleases';
+import * as actions from '../actions/tasks';
 
 function mapStateToProps(state) {
   return {
-    ...state.newReleases,
+    ...state.tasks,
   };
 }
 
@@ -18,14 +18,14 @@ function mapDispatchToProps(dispatch) {
 function mergeProps(stateProps, dispatchProps, ownProps) {
   return {
     ...ownProps,
-    newReleases: {
+    tasks: {
       ...dispatchProps,
       ...stateProps,
     },
   };
 }
 
-export default function withNewReleases(Component) {
+export default function withTasks(Component) {
   return connect(mapStateToProps, mapDispatchToProps, mergeProps)(props => (
     <Component {...props} />
   ));

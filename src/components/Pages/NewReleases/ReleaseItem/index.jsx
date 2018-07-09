@@ -80,7 +80,7 @@ const ReleaseItem = (props) => {
   } = props;
 
   return (
-    <Container isActive={isActive} onClick={() => onClick(id)}>
+    <Container isActive={isActive} onClick={() => onClick(id, sku)}>
       <p className={dateCss}>{ date }</p>
       <Name isActive={isActive}>{ name }</Name>
       <Image src={image}>
