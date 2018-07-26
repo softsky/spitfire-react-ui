@@ -12,3 +12,10 @@ export function fetchNewReleasesSuccess(payload) {
     payload,
   };
 }
+
+export function fetchNewReleasesFailure(error) {
+  return {
+    type: actionTypes.FETCH_NEW_RELEASES_FAOLURE,
+    error,
+  };
+}
