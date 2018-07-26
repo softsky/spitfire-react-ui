@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { flow } from 'lodash/fp';
 import { ThemeProvider } from 'emotion-theming';
+import withAppInit from '../../containers/withAppInit';
 import SideBar from '../SideBar';
 import Header from '../Header';
 import NewReleases from '../Pages/NewReleases';
@@ -60,6 +63,18 @@ class App extends Component {
     },
   ]
 
+  static propTypes = {
+    appInit: PropTypes.shape({
+      actions: PropTypes.shape({
+        uiReady: PropTypes.func.isRequired,
+      }),
+    }).isRequired,
+  }
+
+  componentDidMount() {
+    this.props.appInit.actions.uiReady();
+  }
+
   render() {
     return (
       <ThemeProvider theme={colors}>
@@ -86,4 +101,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default flow([
+  withAppInit,
+])(App);
