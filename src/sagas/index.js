@@ -1,6 +1,7 @@
 import { takeEvery, fork, all } from 'redux-saga/effects';
 import ipc from '../utils/ipc';
 import { actionTypes as appActionTypes } from '../actions/appInit';
+import { actionTypes as licenseActionTypes } from '../reducers/license';
 import { actionTypes as releasesActionTypes } from '../reducers/newReleases';
 
 
@@ -18,9 +19,17 @@ function* takeNewReleases() {
   );
 }
 
+function* takeLicenceKey(key) {
+  yield takeEvery(
+    licenseActionTypes.VALIDATE_LICENSE_KEY_REQUEST,
+    () => ipc.send('VALIDATE_LICENSE_KEY', key),
+  );
+}
+
 export default function* () {
   yield all([
     fork(takeUiReady),
     fork(takeNewReleases),
+    fork(takeLicenceKey),
   ]);
 }
