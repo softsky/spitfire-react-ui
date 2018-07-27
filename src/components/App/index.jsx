@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { flow } from 'lodash/fp';
 import { ThemeProvider } from 'emotion-theming';
 import withAppInit from '../../containers/withAppInit';
+import withLicense from '../../containers/withLicense';
 import SideBar from '../SideBar';
 import Header from '../Header';
 import NewReleases from '../Pages/NewReleases';
@@ -13,6 +14,7 @@ import OrderChecker from '../Pages/OrderChecker';
 import Profiles from '../Pages/Profiles';
 import Laboratory from '../Pages/Laboratory';
 import Access from '../Pages/Access';
+import Welcome from '../Pages/Welcome';
 import colors from '../../constants/colors';
 import './styles.css';
 
@@ -69,10 +71,42 @@ class App extends Component {
         uiReady: PropTypes.func.isRequired,
       }),
     }).isRequired,
+
+    license: PropTypes.shape({
+      isValid: PropTypes.bool,
+    }).isRequired,
   }
 
   componentDidMount() {
     this.props.appInit.actions.uiReady();
+  }
+
+  renderBody = () => {
+    const { license } = this.props;
+
+    if (!license.isValid) {
+      return (
+        <Welcome />
+      );
+    }
+
+    return (
+      <Router>
+        <div className="App-container">
+          <Redirect to={this.items[0].path} />
+          <SideBar items={this.items} />
+          {
+            this.items.map(item => (
+              <Route
+                key={item.path}
+                path={item.path}
+                component={item.component}
+              />
+            ))
+          }
+        </div>
+      </Router>
+    );
   }
 
   render() {
@@ -80,21 +114,7 @@ class App extends Component {
       <ThemeProvider theme={colors}>
         <div className="App">
           <Header />
-          <Router>
-            <div className="App-container">
-              <Redirect to={this.items[0].path} />
-              <SideBar items={this.items} />
-              {
-                this.items.map(item => (
-                  <Route
-                    key={item.path}
-                    path={item.path}
-                    component={item.component}
-                  />
-                ))
-              }
-            </div>
-          </Router>
+          { this.renderBody() }
         </div>
       </ThemeProvider>
     );
@@ -103,4 +123,5 @@ class App extends Component {
 
 export default flow([
   withAppInit,
+  withLicense,
 ])(App);

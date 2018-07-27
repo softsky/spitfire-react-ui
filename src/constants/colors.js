@@ -3,6 +3,7 @@ const primaryTextColor = '#bec3e0';
 export default {
   red: '#ee504c',
   primaryTextColor,
+  titleTextColor: '#ffffff',
   buttonPrimaryBg: '#fd4a45',
   buttonPrimaryColor: '#ffffff',
   buttonSecondaryBg: '#474b61',
