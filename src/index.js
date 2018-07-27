@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import createStore from './store/create';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
+import initIpcs from './ipcs';
 
 import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
 
+const store = createStore();
+initIpcs(store);
 
 ReactDOM.render(
   // eslint-disable-next-line

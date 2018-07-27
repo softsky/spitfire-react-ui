@@ -42,7 +42,7 @@ const StyledTitle = styled(Title)`
 
 const Row = styled('div')`
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   > * {
     flex: 1;

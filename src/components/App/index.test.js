@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from '../../store';
+import createStore from '../../store/create';
 import App from './index';
+
+
+const store = createStore();
 
 
 // eslint-disable-next-line
