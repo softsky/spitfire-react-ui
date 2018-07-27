@@ -84,16 +84,22 @@ class Welcome extends Component {
     }).isRequired,
   }
 
+  state = {
+    handleError: false,
+  }
+
   validateLincene = ({ keyCode, target }) => {
     const { license } = this.props;
 
     if (keyCode === 13) {
       license.actions.validateLincese(target.value);
+      this.setState({ handleError: true });
     }
   }
 
   render() {
     const { license } = this.props;
+    const { handleError } = this.state;
 
     return (
       <Container>
@@ -105,7 +111,7 @@ class Welcome extends Component {
           <Title>
             Hello
           </Title>
-          <ErrorMessage show={!!license.error}>
+          <ErrorMessage show={!!license.error && handleError}>
             Please enter valid product key
           </ErrorMessage>
         </Body>
