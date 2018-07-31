@@ -60,7 +60,7 @@ const LicenseInput = styled('input')`
 `;
 
 const ErrorMessage = styled('p')`
-  visibility: ${props => (props.show ? 'visible' : 'hidden')};
+  display: ${props => (props.show ? 'block' : 'none')};
   font-family: 'MontserratMedium';
   font-size: 16px;
   color: ${props => props.theme.red};
@@ -72,6 +72,18 @@ const Icon = styled(FontAwesome)`
   top: 1px;
   font-size: 18px;
   color: #8d8e93;
+`;
+
+const Spinner = styled(FontAwesome)`
+  display: ${props => (props.show ? 'block' : 'none')};
+  font-size: 45px;
+  color: #ffffff;
+  animation: loading 3s linear infinite;
+  
+  @keyframes loading {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
 `;
 
 class Welcome extends Component {
@@ -99,6 +111,7 @@ class Welcome extends Component {
 
   render() {
     const { license } = this.props;
+    const { error, isFetching } = license;
     const { handleError } = this.state;
 
     return (
@@ -111,9 +124,10 @@ class Welcome extends Component {
           <Title>
             Hello
           </Title>
-          <ErrorMessage show={!!license.error && handleError}>
+          <ErrorMessage show={!!error && handleError}>
             Please enter valid product key
           </ErrorMessage>
+          <Spinner name="spinner" show={isFetching} />
         </Body>
         <Footer>
           <LicenseLabel>
