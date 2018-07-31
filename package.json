@@ -28,7 +28,10 @@
   "scripts": {
     "lint": "eslint --fix --ext .jsx,.js src",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start:welcome": "REACT_APP_WINDOW=welcome react-scripts start",
+    "build": "yarn build:welcome && yarn build:main",
+    "build:welcome": "REACT_APP_WINDOW=welcome react-scripts build && mv build welcome",
+    "build:main": "react-scripts build && mv build main",
     "test": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },

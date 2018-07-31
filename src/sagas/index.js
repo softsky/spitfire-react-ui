@@ -2,18 +2,16 @@ import {
   takeEvery,
   fork,
   all,
-  put,
 } from 'redux-saga/effects';
+
 import ipc from '../utils/ipc';
-import { validateLincese } from '../actions/license';
 import { actionTypes as appActionTypes } from '../actions/appInit';
 import { actionTypes as licenseActionTypes } from '../reducers/license';
 import { actionTypes as releasesActionTypes } from '../reducers/newReleases';
 
 
 function* handleUiReady() {
-  ipc.send('UI_READY');
-  yield put(validateLincese());
+  yield ipc.send('UI_READY');
 }
 
 function* takeUiReady() {
