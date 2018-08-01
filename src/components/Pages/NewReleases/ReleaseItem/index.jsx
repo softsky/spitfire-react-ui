@@ -7,7 +7,7 @@ import styled, { css } from 'react-emotion';
 const Container = styled('div')(({ isActive, theme }) => `
   background: ${isActive ? theme.red : 'transparent'};
   background-image: ${isActive ? `url(${require('./img/border.png')})` : 'none'};
-  background-position: 49% 58%;
+  background-position: 49% 49%;
   background-repeat: no-repeat;
   color: ${isActive ? '#ffffff' : '#cad0ef'};
   border-radius: 5px;
@@ -18,7 +18,7 @@ const Container = styled('div')(({ isActive, theme }) => `
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  padding: ${isActive ? '20px 0' : '25px 0 30px'};
+  padding: ${isActive ? '10px 0' : '15px 0 20px'};
   box-sizing: border-box;
   font-size: 12.5px;
   transition: background 0.2s;
@@ -38,6 +38,8 @@ const Name = styled('span')(({ isActive, theme }) => `
 const Sku = styled('span')(({ isActive }) => `
   font-family: 'MontserratSemiBold';
   margin: ${isActive ? '25px 0 0' : '15px 0 0'};
+  padding: 0 5px;
+  text-align: center;
 `);
 
 const SkuTitle = styled('span')(({ isActive, theme }) => `
@@ -84,10 +86,10 @@ const ReleaseItem = (props) => {
       <p className={dateCss}>{ date }</p>
       <Name isActive={isActive}>{ name }</Name>
       <Image src={image}>
-        <Price isActive={isActive}>${price}</Price>
+        <Price isActive={isActive}>{price}</Price>
       </Image>
       <Sku isActive={isActive}>
-        <SkuTitle isActive={isActive}>SKU</SkuTitle> { sku }
+        <SkuTitle isActive={isActive}>SKU: </SkuTitle> { sku }
       </Sku>
     </Container>
   );
