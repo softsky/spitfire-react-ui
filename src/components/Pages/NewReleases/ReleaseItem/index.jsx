@@ -18,7 +18,7 @@ const Container = styled('div')(({ isActive, theme }) => `
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  padding: ${isActive ? '10px 0' : '15px 0 20px'};
+  padding: ${isActive ? '20px 0' : '25px 0 30px'};
   box-sizing: border-box;
   font-size: 12.5px;
   transition: background 0.2s;
