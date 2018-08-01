@@ -7,7 +7,7 @@ import styled, { css } from 'react-emotion';
 const Container = styled('div')(({ isActive, theme }) => `
   background: ${isActive ? theme.red : 'transparent'};
   background-image: ${isActive ? `url(${require('./img/border.png')})` : 'none'};
-  background-position: 49% 49%;
+  background-position: 49% 53%;
   background-repeat: no-repeat;
   color: ${isActive ? '#ffffff' : '#cad0ef'};
   border-radius: 5px;
