@@ -5,14 +5,11 @@ import Title from './Title';
 import CheckBox from '../../UI/CheckBox';
 import Button from '../../UI/Button';
 import Input from '../../UI/Input';
+import Card from '../../UI/Card';
 
-const containerCss = css`
+
+const StyledCard = styled(Card)`
   width: 380px;
-  background: #242736;
-  padding: 16px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  font-family: 'MontserratMedium';
 `;
 
 const StyledButton = styled(Button)`
@@ -92,7 +89,7 @@ export default class CreateTask extends Component {
     const { form } = this.state;
 
     return (
-      <div className={containerCss}>
+      <StyledCard>
         <StyledTitle icon="list">
           Create New Task
         </StyledTitle>
@@ -200,7 +197,7 @@ export default class CreateTask extends Component {
         >
           create
         </StyledButton>
-      </div>
+      </StyledCard>
     );
   }
 }
