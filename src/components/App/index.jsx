@@ -82,7 +82,7 @@ class App extends Component {
           <Header />
           <Router>
             <div className="App-container">
-              <Redirect to={this.items[0].path} />
+              <Redirect to={this.items[4].path} />
               <SideBar items={this.items} />
               {
                 this.items.map(item => (
