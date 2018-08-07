@@ -1,22 +1,22 @@
 import React from 'react';
-import { css } from 'react-emotion';
+import styled from 'react-emotion';
 import { flow } from 'lodash/fp';
 import CreateTask from './CreateTask';
 import CurrentTasks from './CurrentTasks';
 import withTasks from '../../../containers/withTasks';
 
 
-const containerCss = css`
+const Container = styled('div')`
   padding: 12px 10px;
   display: flex;
   flex: 1;
 `;
 
 const ManageTasks = props => (
-  <div className={containerCss}>
+  <Container>
     <CreateTask {...props} />
     <CurrentTasks {...props} />
-  </div>
+  </Container>
 );
 
 export default flow([

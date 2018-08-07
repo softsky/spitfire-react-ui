@@ -15,3 +15,17 @@ export function removeTask(id) {
     payload: id,
   };
 }
+
+export function runTask(payload) {
+  return {
+    type: actionTypes.RUN_TASK,
+    payload,
+  };
+}
+
+export function updateTask(payload) {
+  return {
+    type: actionTypes.UPDATE_TASK,
+    payload,
+  };
+}
