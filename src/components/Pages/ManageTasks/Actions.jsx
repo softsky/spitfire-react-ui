@@ -16,16 +16,19 @@ const Icon = styled(FontAwesome)`
   &:hover { opacity: .7; }
 `;
 
-const Actions = ({ removeTask, id }) => (
+// TODO: for now we keep all tasks just in memory,
+// but we have to store them somewhere on the BE
+const Actions = ({ removeTask, runTask, ...task }) => (
   <Root>
-    <Icon name="play-circle-o" />
+    <Icon name="play-circle-o" onClick={() => runTask(task)} />
     <Icon name="stop-circle-o" />
-    <Icon name="times-circle-o" onClick={() => removeTask(id)} />
+    <Icon name="times-circle-o" onClick={() => removeTask(task.id)} />
   </Root>
 );
 
 Actions.propTypes = {
   removeTask: PropTypes.func.isRequired,
+  runTask: PropTypes.func.isRequired,
   id: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

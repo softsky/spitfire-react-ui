@@ -52,7 +52,13 @@ export default class CurrentTasks extends Component {
       title: 'Action',
       width: '10%',
       key: 'action',
-      render: record => <Actions {...record} removeTask={this.handleRemoveTask} />,
+      render: record => (
+        <Actions
+          {...record}
+          removeTask={this.handleRemoveTask}
+          runTask={this.handleRunTask}
+        />
+      ),
     },
   ];
 
@@ -61,12 +67,17 @@ export default class CurrentTasks extends Component {
       data: PropTypes.array,
       actions: PropTypes.shape({
         removeTask: PropTypes.func.isRequired,
+        runTask: PropTypes.func.isRequired,
       }),
     }).isRequired,
   };
 
   handleRemoveTask = (id) => {
     this.props.tasks.actions.removeTask(id);
+  }
+
+  handleRunTask = (task) => {
+    this.props.tasks.actions.runTask(task);
   }
 
   render() {
