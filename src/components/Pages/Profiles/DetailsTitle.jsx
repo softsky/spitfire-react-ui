@@ -8,7 +8,7 @@ const StyledTitle = styled('p')`
   color: #ffffff;
   font-size: 23px;
   flex: 1;
-  margin: 0px 10px;
+  margin: 0px 10px 25px;
   font-family: 'MontserratMedium';
 `;
 
