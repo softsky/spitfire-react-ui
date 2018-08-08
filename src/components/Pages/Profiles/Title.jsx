@@ -6,15 +6,14 @@ import FontAwesome from 'react-fontawesome';
 
 const StyledTitle = styled('p')`
   color: #ffffff;
-  font-size: 22px;
-  flex: 1;
-  margin: 0px 0 25px;
-  font-family: 'MontserratMedium';
+  font-size: 20px;
+  margin: 0 0 30px 0;
+  font-family: 'MontserratSemiBold';
 `;
 
 const Icon = styled(FontAwesome)`
   margin-right: 10px;
-  font-size: 22px;
+  font-size: 18px;
   color: ${props => props.theme.red};
 `;
 

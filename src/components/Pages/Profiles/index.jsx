@@ -1,11 +1,14 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import Title from './Title';
 import CheckBox from '../../UI/CheckBox';
 // import Button from '../../UI/Button';
 import Input from '../../UI/Input';
 import Select from '../../UI/Select';
 import DetailsCard from './DetailsCard';
+import SelectProfile from './SelectProfile';
+import StatusBar from './StatusBar';
 
 
 const Container = styled('div')`
@@ -44,13 +47,21 @@ const Row = styled('div')`
   }
 `;
 
+const HalfRow = styled(Row)`
+  width: 50%;
+`;
+
+const PostalCode = styled(Input)`
+  width: 100px;
+`;
+
 const CheckBoxRow = styled('div')`
   margin-bottom: 7px;
 `;
 
 const StyledCheckBox = styled(CheckBox)`
   background-color: ${props => props.theme.applicationBg};
-  padding: 12px 0 12px 40px;
+  padding: 12px 0 12px 25px;
   flex: 1;
   display: block;
   border-radius: 5px;
@@ -58,7 +69,11 @@ const StyledCheckBox = styled(CheckBox)`
 
 const Profiles = () => (
   <Container>
-    Profiles
+    <Title icon="user-o">
+      Profile Management
+    </Title>
+    <SelectProfile />
+    <StatusBar />
     <DetailsRow>
       <DetailsCard title="Shipping Imformation" titleIcon="map-o">
         <Row>
@@ -96,11 +111,14 @@ const Profiles = () => (
             onChange={() => null}
           />
           <Select
+            title="State"
+            onChange={() => null}
             options={[
               { key: 1, label: 'one' },
+              { key: 2, label: 'some long name blah blah blah' },
             ]}
           />
-          <Input
+          <PostalCode
             placeholder="Postal Code"
             value={null}
             onChange={() => null}
@@ -149,12 +167,15 @@ const Profiles = () => (
             value={null}
             onChange={() => null}
           />
-          <Input
-            placeholder="State"
-            value={null}
+          <Select
+            title="State"
             onChange={() => null}
+            options={[
+              { key: 1, label: 'one' },
+              { key: 2, label: 'some long name blah blah blah' },
+            ]}
           />
-          <Input
+          <PostalCode
             placeholder="Postal Code"
             value={null}
             onChange={() => null}
@@ -169,20 +190,47 @@ const Profiles = () => (
         </Row>
       </DetailsCard>
       <DetailsCard title="Payment Imformation" titleIcon="credit-card">
+        <HalfRow>
+          <Select
+            title="Card Type"
+            onChange={() => null}
+            options={[
+              { key: 'Visa', label: 'Visa' },
+            ]}
+          />
+        </HalfRow>
         <Row>
           <Input
-            placeholder="Phone Number"
+            placeholder="Card Number"
             value={null}
             onChange={() => null}
           />
         </Row>
         <Row>
+          <Select
+            title="Month"
+            onChange={() => null}
+            options={[
+              { key: 1, label: '1' },
+              { key: 2, label: '2' },
+            ]}
+          />
+          <Select
+            title="Year"
+            onChange={() => null}
+            options={[
+              { key: 2018, label: '2018' },
+              { key: 2019, label: '2019' },
+            ]}
+          />
+        </Row>
+        <HalfRow>
           <Input
-            placeholder="Phone Number"
+            placeholder="CVV"
             value={null}
             onChange={() => null}
           />
-        </Row>
+        </HalfRow>
       </DetailsCard>
     </DetailsRow>
   </Container>

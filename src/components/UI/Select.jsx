@@ -23,6 +23,7 @@ const Select = ({
   onChange,
   value,
   options,
+  title,
   ...props
 }) => (
   <StyledSelect
@@ -30,19 +31,23 @@ const Select = ({
     value={value}
     {...props}
   >
+    <option key="title">
+      { title }
+    </option>
     {
-    options.map(option => (
-      <option kay={option.key}>
-        { option.label }
-      </option>
-    ))
-  }
+      options.map(option => (
+        <option key={option.key}>
+          { option.label }
+        </option>
+      ))
+    }
   </StyledSelect>
 );
 
 Select.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
+  title: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
     label: PropTypes.string,
