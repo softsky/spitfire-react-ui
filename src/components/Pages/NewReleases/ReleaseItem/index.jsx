@@ -101,7 +101,7 @@ ReleaseItem.propTypes = {
   name: PropTypes.string.isRequired,
   sku: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired,
 };
