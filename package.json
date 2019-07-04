@@ -2,18 +2,48 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
+    "add": "^2.0.6",
+    "classnames": "^2.2.6",
+    "copy-to-clipboard": "^3.0.8",
+    "emotion": "^9.2.4",
+    "emotion-theming": "^9.2.4",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.10",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^3.0.1"
+    "react-emotion": "^9.2.4",
+    "react-fontawesome": "^1.6.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "seamless-immutable": "^7.1.3",
+    "yarn": "^1.7.0"
   },
   "scripts": {
+    "lint": "eslint --fix --ext .jsx,.js src",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start:welcome": "REACT_APP_WINDOW=welcome react-scripts start",
+    "build": "yarn build:welcome && yarn build:main",
+    "build:welcome": "REACT_APP_WINDOW=welcome react-scripts build && mv build welcome",
+    "build:main": "react-scripts build && mv build main",
+    "test": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "electron": "5.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-react": "^7.10.0"
   }
 }

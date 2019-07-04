@@ -8,6 +8,8 @@
 
 # production
 /build
+/main
+/welcome
 
 # misc
 .DS_Store
@@ -19,3 +21,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# tern
+.tern-port
+.tern-config
+
+# emacs temp files
+\#*\#
+.\#

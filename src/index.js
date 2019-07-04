@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import createStore from './store/create';
+import App from './components/App';
+import Welcome from './windows/Welcome';
 import registerServiceWorker from './registerServiceWorker';
+import initIpcs from './ipcs';
 
-const electron = window.require('electron');
-const { ipcRenderer: ipc } = electron;
+import 'font-awesome/css/font-awesome.min.css';
+import './index.css';
 
+const store = createStore();
+initIpcs(store);
 
-ReactDOM.render(<App ipc={ipc} />, document.getElementById('root'));
+const Component = process.env.REACT_APP_WINDOW === 'welcome'
+  ? Welcome
+  : App;
+
+ReactDOM.render(
+  // eslint-disable-next-line
+  <Provider store={store}>
+    <Component />
+  </Provider>,
+  // eslint-disable-next-line
+  document.getElementById('root'),
+);
+
 registerServiceWorker();
