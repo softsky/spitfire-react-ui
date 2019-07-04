@@ -10,16 +10,16 @@
     "emotion": "^9.2.4",
     "emotion-theming": "^9.2.4",
     "font-awesome": "^4.7.0",
+    "js-yaml": "3.13.1",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "^3.0.1",
     "react-emotion": "^9.2.4",
     "react-fontawesome": "^1.6.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^3.0.1",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
@@ -37,13 +37,11 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "electron": "5.0.6"
-  },
-  "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.0",
-    "eslint-plugin-react": "^7.10.0"
+    "eslint-plugin-react": "^7.10.0",
+    "webpack-dev-server": "3.1.11"
   }
 }
